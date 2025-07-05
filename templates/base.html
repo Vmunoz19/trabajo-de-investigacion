@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/ripple-effect.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <title>{% block title %}Mi Proyecto Django{% endblock %}</title>
+    <style>
+      /* Paleta pastel hospitalaria mejorada */
+      .bg-pastel-blue-50 { background: linear-gradient(135deg, #e8f4fd 0%, #d1e7dd 100%) !important; }
+      .bg-pastel-blue-100 { background: linear-gradient(135deg, #b3d9ff 0%, #a8e6cf 100%) !important; }
+      .bg-pastel-blue-200 { background: linear-gradient(135deg, #4dabf7 0%, #40c057 100%) !important; }
+      .bg-pastel-green-100 { background: linear-gradient(135deg, #c3f7d0 0%, #b3e5fc 100%) !important; }
+      .bg-pastel-green-200 { background: linear-gradient(135deg, #51cf66 0%, #22b8cf 100%) !important; }
+      .bg-pastel-purple-200 { background: linear-gradient(135deg, #d0bfff 0%, #adb5bd 100%) !important; }
+      .bg-pastel-pink-100 { background: linear-gradient(135deg, #ffdeeb 0%, #ffd43b 100%) !important; }
+      .bg-pastel-yellow-100 { background: linear-gradient(135deg, #fff3bf 0%, #ffec99 100%) !important; }
+      
+      /* Colores más vibrantes para fondos principales */
+      .bg-hospital-primary { background: linear-gradient(135deg, #4c6ef5 0%, #22b8cf 100%) !important; }
+      .bg-hospital-secondary { background: linear-gradient(135deg, #51cf66 0%, #69db7c 100%) !important; }
+      .bg-hospital-accent { background: linear-gradient(135deg, #ff8cc8 0%, #ffd43b 100%) !important; }
+      .bg-hospital-warning { background: linear-gradient(135deg, #ffa94d 0%, #fd7e14 100%) !important; }
+      
+      /* Textos pasteles suaves */
+      .text-pastel-blue-900 { color: #364fc7 !important; }
+      .text-pastel-green-700 { color: #2f9e44 !important; }
+      .text-pastel-purple-700 { color: #7950f2 !important; }
+      .text-pastel-pink-700 { color: #e64980 !important; }
+      .text-pastel-yellow-700 { color: #fab005 !important; }
+      .text-pastel-teal-700 { color: #0ca678 !important; }
+      .text-pastel-orange-700 { color: #fd7e14 !important; }
+      
+      /* Bordes más suaves */
+      .border-pastel-blue-200 { border-color: #91a7ff !important; }
+      .border-pastel-green-200 { border-color: #8ce99a !important; }
+      .border-pastel-purple-200 { border-color: #d0bfff !important; }
+      .border-pastel-pink-100 { border-color: #ffa8cc !important; }
+      .border-pastel-yellow-100 { border-color: #ffec99 !important; }
+      
+      /* Efectos mejorados */
+      .rounded-xl { border-radius: 1rem !important; }
+      .rounded-2xl { border-radius: 1.5rem !important; }
+      .shadow-lg { 
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+      }
+      .shadow-xl { 
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+      }
+      
+      /* Efectos hover mejorados */
+      .hover-glow:hover {
+        box-shadow: 0 0 30px rgba(76, 110, 245, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      /* Animaciones suaves */
+      .transition-all-smooth {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      /* Gradientes de fondo principales */
+      .bg-main-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .bg-secondary-gradient {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+      
+      .bg-success-gradient {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+      
+      /* Efectos de cristal */
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body class="min-h-full bg-gradient-to-br from-blue-50 via-purple-100 to-green-50">
+    {% block navBar %} {% include 'components/navbar.html' %} {% endblock navBar %}
+
+    <!-- Messages Component -->
+    {% include 'components/messages.html' %}
+
+    <!-- Main Content -->
+    <main class="flex-1">{% block content %}{% endblock content %}</main>
+
+    {% block js %}
+    <script src="{% static 'js/ripple-effect.js' %}"></script>
+    <script src="{% static 'js/messages.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,71 @@
+{% extends 'home.html' %}
+<title>{% block title %}Horarios de Atención{% endblock %}</title>
+{% block content %}
+    {% load static %}
+    {% include 'components/messages1.html' %}
+    <section class="max-w-5xl mx-auto mt-8 bg-white rounded-xl shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-emerald-700 mb-6 text-center">Gestionar Horarios de Atención</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="overflow-x-auto">
+                <table class="w-full text-center text-sm border rounded-lg">
+                    <thead class="bg-emerald-50 text-emerald-800">
+                        <tr>
+                            <th class="px-4 py-3">Día</th>
+                            <th class="px-4 py-3">Hora Inicio</th>
+                            <th class="px-4 py-3">Hora Fin</th>
+                            <th class="px-4 py-3">Intervalo Desde</th>
+                            <th class="px-4 py-3">Intervalo Hasta</th>
+                            <th class="px-4 py-3">Activo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in forms %}
+                        <tr class="bg-white border-b hover:bg-emerald-50 transition-colors duration-200">
+                            <td class="px-4 py-3 font-semibold text-emerald-800">
+                                {{ item.form.initial.dia_semana|capfirst }}
+                                {{ item.form.dia_semana.as_hidden }}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{ item.form.hora_inicio }}
+                                {{ item.form.hora_inicio.errors }}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{ item.form.hora_fin }}
+                                {{ item.form.hora_fin.errors }}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{ item.form.intervalo_desde }}
+                                {{ item.form.intervalo_desde.errors }}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{ item.form.intervalo_hasta }}
+                                {{ item.form.intervalo_hasta.errors }}
+                            </td>
+                            <td class="px-4 py-3">
+                                {{ item.form.activo }}
+                                {{ item.form.activo.errors }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-3 p-6">
+                <button type="submit"
+                    class="bg-emerald-700 hover:bg-emerald-800 text-black py-3 px-6 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg">
+                    <i class="fa-solid fa-floppy-disk mr-2"></i> Guardar Horarios
+                </button>
+            </div>
+        </form>
+        <div class="flex justify-center mt-2">
+            <a href="{{ back_url }}"
+                class="bg-gray-600 hover:bg-gray-700 text-black py-3 px-6 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg">
+                <i class="fa-solid fa-ban mr-2"></i> Cancelar
+            </a>
+        </div>
+        <p class="text-center text-gray-500 mt-4 text-sm">
+            Puedes dejar en blanco los campos de los días que no estén activos.
+        </p>
+    </section>
+{% endblock %}

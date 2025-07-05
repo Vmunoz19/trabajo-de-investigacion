@@ -1,0 +1,287 @@
+{% extends 'base.html' %} 
+<title>{% block title %}{{title}}{% endblock %}</title>
+
+{% block content %}
+    <div class="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-emerald-50">
+        <!-- Header -->
+        
+
+        <!-- Contenido Principal -->
+        <main class="max-w-7.5xl.5 mx-auto px-6 py-8">
+            <!-- Welcome Section -->
+            <div class="mb-8">
+                <div class="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 text-slate-700 p-8 rounded-2xl shadow-xl mb-6 relative overflow-hidden hover-glow transition-all-smooth">
+                    <div class="relative z-10">
+                        <h2 class="text-4xl font-bold mb-3 text-slate-800">¡Bienvenido a SaludTotal!</h2>
+                        <p class="text-slate-700 text-xl font-medium">Gestiona tu citas y atenciones médicas</p>
+                    </div>
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-white/20 rounded-full -mr-20 -mt-20 animate-pulse"></div>
+                    <div class="absolute bottom-0 right-0 w-28 h-28 bg-white/10 rounded-full -mr-14 -mb-14 animate-pulse" style="animation-delay: 1s;"></div>
+                    <div class="absolute top-1/2 left-0 w-32 h-32 bg-white/15 rounded-full -ml-16 animate-pulse" style="animation-delay: 2s;"></div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gradient-to-br from-blue-200 to-blue-300 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all-smooth transform hover:scale-105 border border-blue-200/50 hover-glow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-blue-800 text-sm font-semibold uppercase tracking-wide">Total Usuarios</p>
+                            <p class="text-3xl font-bold text-blue-900">1,234</p>
+                        </div>
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-300 to-blue-400 rounded-xl flex items-center justify-center shadow-md">
+                            <svg class="w-7 h-7 text-blue-800" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-200 to-emerald-300 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all-smooth transform hover:scale-105 border border-emerald-200/50 hover-glow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-emerald-800 text-sm font-semibold uppercase tracking-wide">Atenciones Hoy</p>
+                            <p class="text-3xl font-bold text-emerald-900">89</p>
+                        </div>
+                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-300 to-emerald-400 rounded-xl flex items-center justify-center shadow-md">
+                            <svg class="w-7 h-7 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-amber-200 to-amber-300 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all-smooth transform hover:scale-105 border border-amber-200/50 hover-glow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-amber-800 text-sm font-semibold uppercase tracking-wide">Consultas Pendientes</p>
+                            <p class="text-3xl font-bold text-amber-900">23</p>
+                        </div>
+                        <div class="w-14 h-14 bg-gradient-to-br from-amber-300 to-amber-400 rounded-xl flex items-center justify-center shadow-md">
+                            <svg class="w-7 h-7 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-pink-200 to-pink-300 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all-smooth transform hover:scale-105 border border-pink-200/50 hover-glow">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-pink-800 text-sm font-semibold uppercase tracking-wide">Mantenimientos</p>
+                            <p class="text-3xl font-bold text-pink-900">5</p>
+                        </div>
+                        <div class="w-14 h-14 bg-gradient-to-br from-pink-300 to-pink-400 rounded-xl flex items-center justify-center shadow-md">
+                            <svg class="w-7 h-7 text-pink-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menus del sistema -->
+            {% if user.is_authenticated %}
+                <!-- Iterar por cada menú -->
+                {% for menu_item in menu_list %}
+                    <div class="mb-12">
+                        <!-- Título del Menú -->
+                        <div class="flex items-center mb-6">
+                            {% if menu_item.menu.icon %}
+                                <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br 
+                                    {% cycle 'from-blue-400 to-blue-500' 'from-orange-400 to-red-500' 'from-green-400 to-emerald-500' 'from-purple-400 to-indigo-500' 'from-pink-400 to-rose-500' 'from-teal-400 to-cyan-500' %}
+                                    rounded-2xl mr-6 shadow-lg">
+                                    <i class="{{ menu_item.menu.icon }} text-slate-50 text-2xl"></i>
+                                </div>
+                            {% endif %}
+                            <div>
+                                <h2 class="text-4xl font-bold text-slate-800 mb-2">{{ menu_item.menu.name }}</h2>
+                                {% if menu_item.menu.description %}
+                                    <p class="text-slate-600 text-lg">{{ menu_item.menu.description }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="w-full h-1 bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-8 rounded-full"></div>
+                        
+                        <!-- Cards de Módulos del Menú -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            {% for module_permission in menu_item.group_module_permission_list %}
+                                <a href="{% if module_permission.module.url %}{{ module_permission.module.url }}{% else %}#{% endif %}" 
+                                class="module-card bg-gradient-to-br 
+                                    {% cycle 'from-blue-100 to-blue-200 hover:from-blue-200 hover:to-blue-300' 'from-pink-100 to-orange-200 hover:from-pink-200 hover:to-orange-300' 'from-green-100 to-emerald-200 hover:from-green-200 hover:to-emerald-300' 'from-purple-100 to-indigo-200 hover:from-purple-200 hover:to-indigo-300' 'from-teal-100 to-cyan-200 hover:from-teal-200 hover:to-cyan-300' 'from-amber-100 to-yellow-200 hover:from-amber-200 hover:to-yellow-300' %}
+                                rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all-smooth transform hover:scale-105 border 
+                                    {% cycle 'border-blue-200/50' 'border-pink-200/50' 'border-green-200/50' 'border-purple-200/50' 'border-teal-200/50' 'border-amber-200/50' %}
+                                group cursor-pointer block text-decoration-none hover-glow">
+                                    <!-- Icono del Módulo -->
+                                    <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br 
+                                        {% cycle 'from-blue-300 to-blue-400 group-hover:from-blue-400 group-hover:to-blue-500' 'from-pink-300 to-orange-400 group-hover:from-pink-400 group-hover:to-orange-500' 'from-green-300 to-emerald-400 group-hover:from-green-400 group-hover:to-emerald-500' 'from-purple-300 to-indigo-400 group-hover:from-purple-400 group-hover:to-indigo-500' 'from-teal-300 to-cyan-400 group-hover:from-teal-400 group-hover:to-cyan-500' 'from-amber-300 to-yellow-400 group-hover:from-amber-400 group-hover:to-yellow-500' %} 
+                                        rounded-2xl mb-4 transition-all-smooth shadow-md">
+                                        
+                                        {% if module_permission.module.icon %}
+                                            <i class="{{ module_permission.module.icon }} 
+                                            {% cycle 'text-blue-800' 'text-orange-800' 'text-green-800' 'text-purple-800' 'text-pink-800' 'text-teal-800' %} 
+                                            text-xl group-hover:text-slate-50 transition-all-smooth"></i>
+                                        {% else %}
+                                            <!-- Icono por defecto para módulos -->
+                                            <i class="fas fa-cube 
+                                            {% cycle 'text-blue-800' 'text-orange-800' 'text-green-800' 'text-purple-800' 'text-pink-800' 'text-teal-800' %} 
+                                            text-xl group-hover:text-slate-50 transition-all-smooth"></i>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <!-- Nombre del Módulo -->
+                                    <h3 class="text-xl font-bold text-slate-800 mb-3">{{ module_permission.module.name }}</h3>
+                                    
+                                    <!-- Descripción del Módulo -->
+                                    <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                                        {% if module_permission.module.description %}
+                                            {{ module_permission.module.description }}
+                                        {% else %}
+                                            Accede a las funcionalidades de {{ module_permission.module.name|lower }}.
+                                        {% endif %}
+                                    </p>
+                                    
+                                    <!-- Botón de Acceso -->
+                                    <div class="w-full font-semibold py-3 px-4 rounded-xl transition-all-smooth text-sm text-center shadow-md
+                                        {% cycle 'bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-slate-50 group-hover:shadow-lg' 'bg-gradient-to-r from-pink-400 to-orange-500 hover:from-pink-500 hover:to-orange-600 text-slate-50 group-hover:shadow-lg' 'bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-slate-50 group-hover:shadow-lg' 'bg-gradient-to-r from-purple-400 to-indigo-500 hover:from-purple-500 hover:to-indigo-600 text-slate-50 group-hover:shadow-lg' 'bg-gradient-to-r from-teal-400 to-cyan-500 hover:from-teal-500 hover:to-cyan-600 text-slate-50 group-hover:shadow-lg' 'bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-slate-50 group-hover:shadow-lg' %}">
+                                        Acceder
+                                    </div>
+                                </a>
+                            {% empty %}
+                                <!-- Mensaje cuando no hay módulos en este menú -->
+                                <div class="col-span-full text-center py-8">
+                                    <div class="text-slate-500 text-lg">No hay módulos disponibles en este menú</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <!-- Mensaje cuando no hay menús disponibles -->
+                    <div class="text-center py-12">
+                        <div class="text-slate-500 text-xl">No hay módulos disponibles para este grupo</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <!-- Mensaje para usuarios no autentificados -->
+                <div class="text-center py-12">
+                    <div class="text-slate-600 text-xl">Debes iniciar sesión para acceder a los módulos</div>
+                </div>
+            {% endif %}
+        </main>
+    </div>
+
+    <style>
+        /* Animaciones mejoradas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 30px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translate3d(30px, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        .module-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .module-card:nth-child(1) { animation-delay: 0.1s; }
+        .module-card:nth-child(2) { animation-delay: 0.2s; }
+        .module-card:nth-child(3) { animation-delay: 0.3s; }
+        .module-card:nth-child(4) { animation-delay: 0.4s; }
+        .module-card:nth-child(5) { animation-delay: 0.5s; }
+        .module-card:nth-child(6) { animation-delay: 0.6s; }
+        .module-card:nth-child(7) { animation-delay: 0.7s; }
+        .module-card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Efectos hover mejorados */
+        .module-card:hover .gradient-icon {
+            animation: pulseGlow 2s infinite;
+        }
+
+        /* Efectos de cristal y blur */
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Efectos de resplandor */
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Transiciones suaves */
+        .transition-all-smooth {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+
+    <!-- Efectos de ondas mejorados -->
+    <style>
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple-animation 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efectos de partículas flotantes */
+        .floating-particles::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+    </style>
+{% endblock content %}
+

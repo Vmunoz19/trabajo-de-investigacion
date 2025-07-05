@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Horario de Atención{% endblock %}
+{% block content %}
+<section class="max-w-lg mx-auto mt-16 bg-white rounded-xl shadow-lg p-8">
+    <h1 class="text-2xl font-bold text-red-700 mb-6 text-center">Eliminar Horario de Atención</h1>
+    <p class="text-center text-gray-700 mb-8">
+        ¿Estás seguro que deseas eliminar el horario de atención para <span class="font-semibold">{{ object.dia_semana|capfirst }}</span>?
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+            <button type="submit" class="bg-red-700 hover:bg-red-800 text-white py-3 px-6 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg">
+                <i class="fa-solid fa-trash mr-2"></i> Eliminar
+            </button>
+            <a href="{{ back_url }}" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg">
+                <i class="fa-solid fa-ban mr-2"></i> Cancelar
+            </a>
+        </div>
+    </form>
+</section>
+{% endblock %}

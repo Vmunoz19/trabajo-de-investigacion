@@ -1,0 +1,91 @@
+{% extends 'home.html' %}
+<title>{% block title %}Horarios de Atención{% endblock %}</title>
+{% block content %}
+    {% load static %}
+    {% include 'components/messages1.html' %}
+    <section class="dark:bg-principal mt-2">
+        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="sm:pt-8 lg:pt-4">
+                <h1 class="rounded-2xl bg-emerald-600 px-2 py-1 text-blue-800 uppercase text-4xl">
+                    Horarios de Atención
+                </h1>
+            </div>
+            <div class="flex justify-center my-6">
+                {% if permissions.add_horarioatencion %}
+                <a href="{{ create_url }}" class="bg-emerald-700 hover:bg-emerald-800 text-white py-3 px-6 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <i class="fa-solid fa-plus mr-2"></i> Nuevo Horario
+                </a>
+                <a class="bg-blue-600 hover:bg-blue-700 text-black py-3 px-4 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        href="{% url 'home' %}">
+                        <i class="fa-solid fa-house"></i>
+                </a>
+                {% endif %}
+            </div>
+            <div class="overflow-x-auto shadow-lg rounded-lg">
+                <table class="w-full text-center text-sm">
+                    <thead class="uppercase font-Tiny5 bg-emerald-50 dark:bg-secundario dark:text-emerald-300 text-emerald-800">
+                        <tr>
+                            <th class="px-4 py-4">Día</th>
+                            <th class="px-4 py-4">Hora Inicio</th>
+                            <th class="px-4 py-4">Hora Fin</th>
+                            <th class="px-4 py-4">Intervalo</th>
+                            <th class="px-4 py-4">Activo</th>
+                            <th class="px-4 py-4">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dia, horarios in dias.items %}
+                            {% for horario in horarios %}
+                            <tr class="dark:text-gray-300 bg-white border-b dark:bg-[#0b1121] dark:border-secundario hover:bg-emerald-50 dark:hover:bg-[#121c33] transition-colors duration-200">
+                                <td class="px-4 py-4 font-medium text-emerald-600 dark:text-emerald-400">
+                                    {{ horario.get_dia_semana_display }}
+                                </td>
+                                <td class="px-4 py-4">{{ horario.hora_inicio|time:"H:i" }}</td>
+                                <td class="px-4 py-4">{{ horario.hora_fin|time:"H:i" }}</td>
+                                <td class="px-4 py-4">
+                                    {% if horario.intervalo_desde and horario.intervalo_hasta %}
+                                        {{ horario.intervalo_desde|time:"H:i" }} - {{ horario.intervalo_hasta|time:"H:i" }}
+                                    {% else %}
+                                        <span class="text-gray-400 italic text-xs">Sin intervalo</span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-4 py-4">
+                                    {% if horario.activo %}
+                                        <span class="text-green-600 font-bold">Sí</span>
+                                    {% else %}
+                                        <span class="text-red-600 font-bold">No</span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-4 py-4">
+                                    <div class="flex justify-center space-x-2">
+                                        {% if permissions.change_horarioatencion %}
+                                        <a href="{% url 'doctor:horarioatencion_update' horario.id %}" class="text-blue-600 hover:text-blue-800 p-1 rounded transition-colors" title="Editar">
+                                            <i class="fa-solid fa-edit text-lg"></i>
+                                        </a>
+                                        {% endif %}
+                                        {% if permissions.delete_horarioatencion %}
+                                        <a href="{% url 'doctor:horarioatencion_delete' horario.id %}" class="text-red-600 hover:text-red-800 p-1 rounded transition-colors" title="Eliminar">
+                                            <i class="fa-solid fa-trash text-lg"></i>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                                    <div class="flex flex-col items-center">
+                                        <i class="fa-solid fa-calendar-xmark text-4xl mb-2 text-gray-300"></i>
+                                        <p class="text-lg">No hay horarios registrados para {{ dia }}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </section>
+{% endblock %}

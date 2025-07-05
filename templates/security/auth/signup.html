@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<title>{% block title %} {{ title1 }} {% endblock title %}</title>
+<div class="bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-slate-800 dark:to-slate-900 min-h-screen p-4 relative overflow-hidden">
+    <!-- Elementos decorativos médicos -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-20 w-32 h-32 bg-emerald-300 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-40 h-40 bg-teal-300 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-rose-300 rounded-full blur-2xl"></div>
+    </div>
+    
+    <div class="relative z-10">
+        <!-- Header con logo -->
+        <a href="/" class="flex items-center mb-8 space-x-4 text-center justify-center" data-aos="fade-up">
+            <div class="bg-white p-3 rounded-full shadow-lg">
+                <img src="{% static 'img/iguana_corporation.png' %}" class="w-12 h-12" alt="Hospital Logo" />
+            </div>
+            <div class="text-center">
+                <span class="block text-2xl font-bold text-emerald-700 dark:text-emerald-300">Hospital Iguanas</span>
+                <span class="block text-sm text-teal-600 dark:text-teal-400 font-medium">Centro Médico Especializado</span>
+            </div>
+        </a>
+        
+        <!-- Contenedor principal -->
+        <section class="max-w-4xl mx-auto bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+            <!-- Header del formulario -->
+            <div class="bg-gradient-to-r from-emerald-500 to-teal-600 p-8 text-center">
+                <h1 class="text-4xl font-bold text-white mb-2 font-Pacifico">
+                    {{ title2 }}
+                </h1>
+                <p class="text-emerald-100 text-lg font-medium">¡Únete a nuestra familia médica!</p>
+                <div class="mt-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="w-24 h-24 mx-auto bg-white rounded-full p-2 shadow-lg">
+                        <img src="{% static 'img/register/signup.jpg' %}" class="w-full h-full rounded-full object-cover" alt="Registro">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulario -->
+            <div class="p-8">
+                <form method="POST" enctype="multipart/form-data" class="space-y-6">
+                    {% csrf_token %}
+                    
+                    <!-- Información Personal -->
+                    <div class="bg-gradient-to-r from-rose-50 to-pink-50 dark:from-slate-700 dark:to-slate-600 p-6 rounded-2xl">
+                        <h3 class="text-lg font-semibold text-rose-700 dark:text-rose-300 mb-4 flex items-center">
+                            <i class="fas fa-user-circle mr-2"></i>
+                            Información Personal
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <div class="mb-5">
+                                    <label for="{{ form.username.id_for_label }}" class="block text-sm font-semibold text-rose-600 dark:text-rose-300 mb-2 uppercase">{{ form.username.label }}</label>
+                                    <input type="text" class="w-full px-4 py-3 bg-white border-2 border-rose-200 rounded-xl focus:border-rose-400 focus:ring-2 focus:ring-rose-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_username" name="username" />
+                                </div>
+                                <div class="mb-5">
+                                    <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-semibold text-rose-600 dark:text-rose-300 mb-2 uppercase">{{ form.first_name.label }}</label>
+                                    <input type="text" class="w-full px-4 py-3 bg-white border-2 border-rose-200 rounded-xl focus:border-rose-400 focus:ring-2 focus:ring-rose-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_first_name" name="first_name" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mb-5">
+                                    <label for="{{ form.dni.id_for_label }}" class="block text-sm font-semibold text-rose-600 dark:text-rose-300 mb-2 uppercase">{{ form.dni.label }}</label>
+                                    <input type="text" class="w-full px-4 py-3 bg-white border-2 border-rose-200 rounded-xl focus:border-rose-400 focus:ring-2 focus:ring-rose-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_dni" name="dni" />
+                                </div>
+                                <div class="mb-5">
+                                    <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-semibold text-rose-600 dark:text-rose-300 mb-2 uppercase">{{ form.last_name.label }}</label>
+                                    <input type="text" class="w-full px-4 py-3 bg-white border-2 border-rose-200 rounded-xl focus:border-rose-400 focus:ring-2 focus:ring-rose-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_last_name" name="last_name" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información de Contacto -->
+                    <div class="bg-gradient-to-r from-sky-50 to-blue-50 dark:from-slate-700 dark:to-slate-600 p-6 rounded-2xl">
+                        <h3 class="text-lg font-semibold text-sky-700 dark:text-sky-300 mb-4 flex items-center">
+                            <i class="fas fa-address-book mr-2"></i>
+                            Información de Contacto
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <div class="mb-5">
+                                    <label for="{{ form.celular.id_for_label }}" class="block text-sm font-semibold text-sky-600 dark:text-sky-300 mb-2 uppercase">{{ form.celular.label }}</label>
+                                    <input type="text" class="w-full px-4 py-3 bg-white border-2 border-sky-200 rounded-xl focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_celular" name="celular" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mb-5">
+                                    <label for="{{ form.correo.id_for_label }}" class="block text-sm font-semibold text-sky-600 dark:text-sky-300 mb-2 uppercase">{{ form.correo.label }}</label>
+                                    <input type="text" class="w-full px-4 py-3 bg-white border-2 border-sky-200 rounded-xl focus:border-sky-400 focus:ring-2 focus:ring-sky-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_correo" name="correo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Seguridad -->
+                    <div class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-slate-700 dark:to-slate-600 p-6 rounded-2xl">
+                        <h3 class="text-lg font-semibold text-emerald-700 dark:text-emerald-300 mb-4 flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Seguridad
+                        </h3>
+                        <div class="max-w-md mx-auto space-y-5">
+                            <div>
+                                <label for="{{ form.password1.id_for_label }}" class="block text-sm font-semibold text-emerald-600 dark:text-emerald-300 mb-2 uppercase">{{ form.password1.label }}</label>
+                                <input type="password" class="w-full px-4 py-3 bg-white border-2 border-emerald-200 rounded-xl focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_password1" name="password1" />
+                            </div>
+                            <div>
+                                <label for="{{ form.password2.id_for_label }}" class="block text-sm font-semibold text-emerald-600 dark:text-emerald-300 mb-2 uppercase">{{ form.password2.label }}</label>
+                                <input type="password" class="w-full px-4 py-3 bg-white border-2 border-emerald-200 rounded-xl focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 transition-all duration-300" id="id_password2" name="password2" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botón de registro -->
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center mx-auto">
+                            <i class="fas fa-user-plus mr-2"></i>
+                            Registrarse
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Link de inicio de sesión -->
+                <div class="text-center mt-8 p-4 bg-gradient-to-r from-violet-50 to-purple-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl">
+                    <p class="text-violet-600 dark:text-violet-300">
+                        ¿Ya tienes una cuenta? 
+                        <a href="{% url 'security:signin' %}" class="text-violet-700 hover:text-violet-900 dark:text-violet-400 dark:hover:text-violet-200 font-semibold underline decoration-2 underline-offset-4 hover:decoration-violet-500 transition-all duration-300">
+                            Inicia Sesión
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+

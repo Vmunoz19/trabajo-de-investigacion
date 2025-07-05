@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="max-w-xl mx-auto mt-8">
+    <div class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-2xl font-bold text-pastel-blue-900 mb-6">
+            {% if object %}Editar{% else %}Nuevo{% endif %} Servicio Adicional
+        </h2>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="grid grid-cols-1 gap-4">
+                {% for field in form %}
+                    <div>
+                        <label class="block text-pastel-blue-900 font-semibold mb-1">{{ field.label }}</label>
+                        {{ field|add_class:"w-full rounded-lg border border-pastel-blue-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pastel-purple-200" }}
+                        {% if field.help_text %}
+                            <p class="text-xs text-pastel-blue-900 mt-1">{{ field.help_text }}</p>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p class="text-sm text-red-500">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="flex justify-between items-center mt-8">
+                <a href="{% url 'doctor:servicio_adicional_list' %}" class="px-4 py-2 bg-pastel-blue-100 text-pastel-blue-900 rounded-lg shadow hover:bg-pastel-blue-200 transition">Volver</a>
+                <button type="submit" class="px-6 py-2 bg-pastel-green-200 text-pastel-green-700 font-semibold rounded-lg shadow hover:bg-pastel-green-100 transition">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
